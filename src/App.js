@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import MovieList from './components/MovieList';
+import moviesData from './data/movies';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredMovies = moviesData.filter(movie =>
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={{ textAlign: 'center' }}>Кінотеатр</h1>
+      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <input
+          type="text"
+          placeholder="Пошук фільму..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{ padding: '10px', fontSize: '16px', width: '50%' }}
+        />
+      </div>
+      <MovieList movies={filteredMovies} />
     </div>
   );
-}
+};
 
 export default App;
+
