@@ -1,6 +1,6 @@
 .movie-card {
-  background-color: #2e2e2e; /* темно-сірий фон картки */
-  color: #f2f2f2;            /* світло-сірий текст */
+  background-color: #2e2e2e; 
+  color: #f2f2f2;            
   padding: 16px;
   margin: 10px;
   border-radius: 12px;
@@ -12,6 +12,22 @@
 .movie-card:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.book-btn {
+  margin-top: 10px;
+  background-color: #004080;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #0066cc;
 }
 
 .movie-card img {
