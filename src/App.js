@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import MovieList from './components/MovieList';
 import moviesData from './data/movies';
+import CinemaHall from './components/CinemaHall';
 import './App.css';
 
-const App = () => {
+// === СТОРІНКА ГОЛОВНА ===
+const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredMovies = moviesData.filter(movie =>
@@ -24,6 +27,30 @@ const App = () => {
       </div>
       <MovieList movies={filteredMovies} />
     </div>
+  );
+};
+
+// === СТОРІНКА БРОНЮВАННЯ ===
+const BookingPage = () => {
+  const { id } = useParams();
+
+  return (
+    <div>
+      <h1 style={{ textAlign: 'center' }}>Бронювання фільму №{id}</h1>
+      <CinemaHall />
+    </div>
+  );
+};
+
+// === ГОЛОВНИЙ КОМПОНЕНТ З ROUTER ===
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/booking/:id" element={<BookingPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
