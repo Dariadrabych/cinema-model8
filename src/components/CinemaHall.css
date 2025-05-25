@@ -55,7 +55,6 @@
   font-size: 16px;
 }
 
-/* ✅ АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ТА ПЛАНШЕТІВ */
 @media (max-width: 768px) {
   .cinema-grid {
     grid-template-columns: repeat(5, 40px); /* менше місць у ряд */
