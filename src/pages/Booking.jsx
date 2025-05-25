@@ -11,7 +11,7 @@ const Booking = () => {
 
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [userData, setUserData] = useState({ name: '', phone: '', email: '' });
-  const [refreshTrigger, setRefreshTrigger] = useState(false); // ✅ додано для оновлення
+  const [refreshTrigger, setRefreshTrigger] = useState(false); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
