@@ -13,7 +13,7 @@
 
 .cinema-grid {
   display: grid;
-  grid-template-columns: repeat(8, 50px); /* 8 місць у ряду */
+  grid-template-columns: repeat(8, 50px);
   gap: 12px;
   justify-content: center;
   margin-bottom: 20px;
@@ -22,7 +22,7 @@
 .seat {
   width: 50px;
   height: 50px;
-  background-color: #4CAF50; /* зелений — вільне місце */
+  background-color: #4CAF50;
   color: white;
   display: flex;
   align-items: center;
@@ -31,19 +31,62 @@
   cursor: pointer;
   font-weight: bold;
   user-select: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .seat:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: scale(1.05);
 }
 
 .seat.selected {
-  background-color: #1E90FF; /* синій — вибране місце */
+  background-color: #1E90FF;
+}
+
+.seat.booked {
+  background-color: #f44336;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .selected-info {
   margin-top: 15px;
   color: #fff;
   font-size: 16px;
+}
+
+/* ✅ АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ТА ПЛАНШЕТІВ */
+@media (max-width: 768px) {
+  .cinema-grid {
+    grid-template-columns: repeat(5, 40px); /* менше місць у ряд */
+    gap: 10px;
+  }
+
+  .seat {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .screen {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  .selected-info {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cinema-grid {
+    grid-template-columns: repeat(4, 35px);
+    gap: 8px;
+  }
+
+  .seat {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
 }
